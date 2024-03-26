@@ -48,4 +48,21 @@ class LinkedList:
         self.head = new_node
 
     def __repr__(self):
-        return "There are %d Nodes" % self.size()
+        """
+        Return a string representation of the list
+        Takes O(n) time
+        """
+        # return "There are %d Nodes" % self.size() # My implementation.
+        nodes = []
+        current = self.head
+
+        while current: # or again current != None:
+            if current is self.head:
+                nodes.append("[Head: %s]" % current.data)
+            elif current.next_node is None:
+                nodes.append("[Tail: %s]" % current.data)
+            else:
+                nodes.append("[%s]" % current.data)
+
+            current = current.next_node
+        return '-> '.join(nodes)
