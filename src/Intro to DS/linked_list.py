@@ -113,6 +113,28 @@ class LinkedList:
 
         return current
 
+    def remove_by_index(self, index):
+        """
+        Removes node by index. Takes O(n) time.
+        Returns none if it doesn't exist.
+        """
+        prev_node = None
+        current_node = self.head
+        if index == 0:
+            self.head = current_node.next_node
+        else:
+            for i in range(index):
+                prev_node = current_node
+                current_node = current_node.next_node
+            try:
+                prev_node.next_node = current_node.next_node
+            except:
+                # current_node = None
+                return "Invalid index"
+
+        return current_node
+
+
     def __repr__(self):
         """
         Return a string representation of the list
