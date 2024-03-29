@@ -134,6 +134,17 @@ class LinkedList:
 
         return current_node
 
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index:
+                current = current.next_node
+                position += 1
+            return current
 
     def __repr__(self):
         """
